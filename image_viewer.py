@@ -2,6 +2,10 @@ import tkinter as tk
 from tkinter import filedialog, messagebox, simpledialog
 from PIL import Image, ImageTk
 import random
+import base64
+from io import BytesIO
+import os
+import sys
 
 
 class Slideshow:
@@ -110,19 +114,41 @@ class ImageViewerApp:
         self.root.bind("<Right>", lambda event: self.show_next_image())  # Right arrow
         
     def set_window_icon(self):
-        """Set the window icon."""
+        """Set the window icon using an embedded base64 string."""
+        icon_base64 = self.get_icon_data()  # Use the icon data from the method
+
         try:
-            # Set window icon for Windows (requires .ico)
-            self.root.iconbitmap("view.ico")
+            # Decode the base64 string to binary data
+            icon_data = base64.b64decode(icon_base64)
+
+            # Convert the binary data into an Image object
+            icon_image = Image.open(BytesIO(icon_data))
+            icon_image = ImageTk.PhotoImage(icon_image)
+
+            # Set the window icon
+            self.root.iconphoto(True, icon_image)
         except Exception as e:
             print(f"Error setting window icon: {e}")
-            try:
-                # Alternative for other platforms (use .png file)
-                icon_image = Image.open("view.ico")
-                icon_image = ImageTk.PhotoImage(icon_image)
-                self.root.iconphoto(True, icon_image)
-            except Exception as e:
-                print(f"Error setting icon: {e}")
+    
+    def get_icon_data(self):
+        """Retrieve the base64 encoded icon data."""
+        try:
+            # Get the correct path to the icon file, whether running in development or as a packaged app
+            if getattr(sys, 'frozen', False):
+                # Running in a bundled executable
+                icon_path = os.path.join(sys._MEIPASS, 'view.ico')
+            else:
+                # Running in a script (development mode)
+                icon_path = 'view.ico'
+            
+            # Open the icon file and encode it to base64
+            with open(icon_path, 'rb') as icon_file:
+                icon_data = base64.b64encode(icon_file.read()).decode('utf-8')
+            return icon_data
+        except Exception as e:
+            print(f"Error loading icon: {e}")
+            return None
+
 
     def setup_menu(self):
         """Set up the menu bar with options."""
