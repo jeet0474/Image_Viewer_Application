@@ -86,7 +86,7 @@ pyinstaller --onefile --clean --noconsole --icon=view.ico --exclude-module numpy
 - `--clean`: Clean temporary files before building the executable.
 - `--noconsole`: Run the application without opening a console window (useful for GUI applications).
 - `--icon=view.ico`: Set a custom icon for the application. Replace `view.ico` with the path to your icon file.
-- `--exclude-module numpy`: Exclude the `numpy` module (if not needed).
+- `--exclude-module numpy`: Exclude the `numpy` module (if not needed), but if users need it for future updates, they can remove the this part.
 
 ### 3. Locate the Executable
 
@@ -170,6 +170,18 @@ ImageViewerApp/
 ├── .gitignore  # Git ignore file to exclude unnecessary files
 └── README.md  # This file
 ```
+
+---
+
+## Contributing
+If you would like to contribute to this project, please fork the repository, create a feature branch, and submit a pull request. Contributions are welcome!
+
+Ensure that all code changes are well-tested and follow the coding standards established in the repository.
+
+---
+
+## Contact
+For questions, feel free to reach out to me at [jeet.patel0474@gmail.com].
 
 ---
 
