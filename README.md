@@ -1,6 +1,24 @@
 # Image Viewer Application
 
+## Project Name: Image Viewer
+
 This Python-based Image Viewer allows users to browse through images with various functionalities, such as forward/backward navigation, shuffle, and slideshow. The application is built using **Tkinter** for the GUI and **Pillow** (PIL) for handling image operations.
+
+## Repository
+
+- GitHub: [Image Viewer on GitHub](https://github.com/jeet0474/Image_Viewer_Application)
+
+## Related Documentation
+
+- **Tkinter Documentation**: [https://docs.python.org/3/library/tkinter.html](https://docs.python.org/3/library/tkinter.html)
+- **Pillow (PIL) Documentation**: [https://pillow.readthedocs.io/en/stable/](https://pillow.readthedocs.io/en/stable/)
+- **PyInstaller Documentation**: [https://pyinstaller.readthedocs.io/en/stable/](https://pyinstaller.readthedocs.io/en/stable/)
+
+## License
+
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+---
 
 ## Features
 
@@ -43,6 +61,8 @@ python image_viewer.py
 ```
 This will open a window with the image viewer and allow you to interact with it.
 
+---
+
 ## How to Build an Executable with PyInstaller
 
 To convert the Python script into a standalone executable, use **PyInstaller**. This will package the application into a `.exe` file (on Windows) or the appropriate executable for your operating system.
@@ -58,7 +78,7 @@ pip install pyinstaller
 
 Run the following command in your terminal or command prompt to generate a single executable file:
 ```bash
-pyinstaller --onefile --clean --noconsole --icon=view.ico --exclude-module numpy try.py
+pyinstaller --onefile --clean --noconsole --icon=view.ico --exclude-module numpy image_viewer.py
 ```
 
 #### Explanation of the command:
@@ -78,6 +98,8 @@ After running the above command, PyInstaller will generate the executable in the
 ### 4. Run the Executable
 
 Navigate to the `dist` directory and double-click on the executable to run the Image Viewer application.
+
+---
 
 ## `.gitignore` Configuration
 
@@ -124,6 +146,8 @@ Thumbs.db
 
 This `.gitignore` will ensure that unnecessary files are excluded from your Git repository, keeping your project clean and focused on the essential code.
 
+---
+
 ## Troubleshooting
 
 ### Error: **Missing DLLs or Dependencies**
@@ -134,7 +158,8 @@ Ensure that the icon file (`view.ico`) is located in the same directory as the s
 
 ---
 
-### Example Directory Structure:
+## Example Directory Structure:
+
 ```
 ImageViewerApp/
 │
