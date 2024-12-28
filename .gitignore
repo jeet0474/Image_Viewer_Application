@@ -1,0 +1,27 @@
+*.exe
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+
+# PyInstaller specific files
+dist/
+build/
+*.spec
+
+# Virtual environment (if any)
+venv/
+.env/
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# PyCharm/IDE files
+.idea/
+.vscode/
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
