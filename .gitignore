@@ -6,6 +6,7 @@ __pycache__/
 # PyInstaller specific files
 dist/
 build/
+saved_collection/
 *.spec
 
 # Virtual environment (if any)
