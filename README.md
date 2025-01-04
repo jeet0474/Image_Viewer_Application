@@ -89,7 +89,39 @@ This will open a window with the image viewer and allow you to interact with it.
 
 ## How to Build an Executable with PyInstaller
 
-To convert the Python script into a standalone executable, use **PyInstaller**. Refer to the steps provided in the original README.
+To convert the Python script into a standalone executable, use **PyInstaller**. This will package the application into a `.exe` file (on Windows) or the appropriate executable for your operating system.
+
+### 1. Install PyInstaller
+
+If you don't have **PyInstaller** installed, install it using pip:
+```bash
+pip install pyinstaller
+```
+
+### 2. Generate the Executable
+
+Run the following command in your terminal or command prompt to generate a single executable file:
+```bash
+pyinstaller --onefile --clean --noconsole --icon=view.ico --exclude-module numpy image_viewer.py
+```
+
+#### Explanation of the command:
+- `--onefile`: Package the entire application into a single executable file.
+- `--clean`: Clean temporary files before building the executable.
+- `--noconsole`: Run the application without opening a console window (useful for GUI applications).
+- `--icon=view.ico`: Set a custom icon for the application. Replace `view.ico` with the path to your icon file.
+- `--exclude-module numpy`: Exclude the `numpy` module (if not needed), but if users need it for future updates, they can remove the this part.
+
+### 3. Locate the Executable
+
+After running the above command, PyInstaller will generate the executable in the `dist` directory inside your project folder.
+
+- **Windows**: The executable will be in the `dist` folder as `image_viewer.exe`.
+- **macOS/Linux**: The executable will be in the `dist` folder with no file extension (`image_viewer`).
+
+### 4. Run the Executable
+
+Navigate to the `dist` directory and double-click on the executable to run the Image Viewer application.
 
 ---
 

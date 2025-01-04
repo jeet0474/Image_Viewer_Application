@@ -7,6 +7,8 @@ __pycache__/
 dist/
 build/
 saved_collection/
+Previous/
+Final App/
 *.spec
 
 # Virtual environment (if any)
